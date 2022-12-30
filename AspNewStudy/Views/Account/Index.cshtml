@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div>
+        <div>Accounts:</div>
+        <div>
+            @foreach (var it in ViewBag.Accounts)
+            {
+                <p>FirstName: @it.FirstName</p>
+                <p>LastName: @it.LastName</p>
+                <p>Gender: @it.Gender</p>
+            }
+        </div>
+    </div>
+</div>
