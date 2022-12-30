@@ -22,5 +22,11 @@ namespace AspNewStudy.Models
             });
             base.Seed(context);
         }
+
+        public void AddSeed(AccountContext context)
+        {
+            base.Seed(context);
+        }
+
     }
 }

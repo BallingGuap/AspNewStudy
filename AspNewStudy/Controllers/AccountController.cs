@@ -10,7 +10,7 @@ namespace AspNewStudy.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        AccountContext context = new AccountContext();
+        AccountContext context = AccountDbSingelton.dbSingl;
         public ActionResult Index()
         {
             IEnumerable<Account> accounts = context.Accounts;
