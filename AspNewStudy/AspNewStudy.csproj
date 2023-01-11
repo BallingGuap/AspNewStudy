@@ -130,6 +130,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountDbSingelton.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,6 +189,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\Info\UserInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">
