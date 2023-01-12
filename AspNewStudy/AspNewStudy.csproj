@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountAsyncController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountDbSingelton.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -190,6 +191,13 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Info\UserInfo.cshtml" />
+    <Content Include="Views\AccountAsync\Create.cshtml" />
+    <Content Include="Views\AccountAsync\Delete.cshtml" />
+    <Content Include="Views\AccountAsync\Details.cshtml" />
+    <Content Include="Views\AccountAsync\Edit.cshtml" />
+    <Content Include="Views\AccountAsync\Index.cshtml" />
+    <Content Include="Views\Shared\MyLayout.cshtml" />
+    <Content Include="Views\Home\PartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">
