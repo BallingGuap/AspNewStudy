@@ -1,6 +1,13 @@
-﻿@{
+﻿@using AspNewStudy.Helpers;
+@{
     ViewBag.Title = "Home Page";
 }
+
+@{ 
+    string[] movies = new string[] { "Batman", "Joker", "Streets", "Buisnesmen", "Lable", 
+                                     "Space", "Jonny", "The Fortune", "Jentelmen", "New Year" };
+}
+
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
@@ -9,10 +16,16 @@
 </div>
 
 <div class="row">
-   <div>
-    <p>This is Home Page</p>   
-   </div>
-<div>
-    @Html.Partial("PartialView");
-</div>
+    <div>
+        <p>This is Home Page</p>
+    </div>
+    <div>
+        @Html.Partial("PartialView");
+    </div>
+
+
+    <div>
+        @ListHelper.CreateList(Html, movies);
+    </div>
+
 </div>

@@ -1,0 +1,32 @@
+﻿@using (Html.BeginForm("Register", "RegisterHtmlForm", FormMethod.Post))
+{
+    <div>
+        <label for="FirstName">FirstName:</label>
+        @Html.TextBox("Firstname")
+    </div>
+
+    <div>
+        <label for="LastName">LastName:</label>
+        @Html.TextBox("LastName")
+    </div>
+
+    <div>
+        <label for="Password">Password:</label>
+        @Html.TextBox("Password")
+    </div>
+
+    <div>
+        <label for="EmailD">EmailD:</label>
+        @Html.TextBox("EmailD")
+    </div>
+
+    <div>
+        <label for="Gender">Gender:</label>
+        @Html.TextBox("Gender")
+    </div>
+
+    <div>
+        <input type="submit" value="Register and Login" />
+    </div>
+
+}
