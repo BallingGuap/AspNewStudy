@@ -131,6 +131,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountDbSingelton.cs" />
     <Compile Include="Controllers\CurrentAccountSingelton.cs" />
+    <Compile Include="Controllers\DeleteController.cs" />
+    <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -202,6 +204,8 @@
     <Content Include="Views\Shared\MyLayout.cshtml" />
     <Content Include="Views\Home\PartialView.cshtml" />
     <Content Include="Views\RegisterHtmlForm\Register.cshtml" />
+    <Content Include="Views\Edit\Edit.cshtml" />
+    <Content Include="Views\Delete\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">
