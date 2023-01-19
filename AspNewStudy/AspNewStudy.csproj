@@ -135,6 +135,7 @@
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RegisterHtmlFormController.cs" />
     <Compile Include="Global.asax.cs">
@@ -153,6 +154,9 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountContext.cs" />
     <Compile Include="Models\AccountsDbInitializer.cs" />
+    <Compile Include="Models\Hospital.cs" />
+    <Compile Include="Models\HospitalContext.cs" />
+    <Compile Include="Models\HospitalDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +210,8 @@
     <Content Include="Views\RegisterHtmlForm\Register.cshtml" />
     <Content Include="Views\Edit\Edit.cshtml" />
     <Content Include="Views\Delete\Delete.cshtml" />
+    <Content Include="Views\Patient\Edit.cshtml" />
+    <Content Include="Views\Patient\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">
