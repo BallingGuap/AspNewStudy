@@ -12,7 +12,5 @@ namespace AspNewStudy.Models
     public class AccountContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
-
-        public System.Data.Entity.DbSet<AspNewStudy.Models.Patient> Patients { get; set; }
     }
 }

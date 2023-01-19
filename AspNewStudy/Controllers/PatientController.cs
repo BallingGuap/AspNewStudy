@@ -1,6 +1,8 @@
 ﻿using AspNewStudy.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -10,15 +12,16 @@ namespace AspNewStudy.Controllers
 {
     public class PatientController : Controller
     {
-        private HospitalContext context = new HospitalContext();
+        private HospitalContext hosContext = new HospitalContext();
+        private AccountContext accContext = new AccountContext();
         public ActionResult Index()
         {
-            return View(context.Patients.ToList());
+            return View(hosContext.Patients.ToList());
         }
 
         public async Task<ActionResult> Details(int? id)
         {
-            var patient = await context.Patients.FindAsync(id);
+            var patient = await hosContext.Patients.FindAsync(id);
 
             if (patient == null) 
                 return  HttpNotFound();
@@ -30,41 +33,45 @@ namespace AspNewStudy.Controllers
 
     
 
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
-            Patient patient = context.Patients.Find(id);
+            Patient patient = await hosContext.Patients.FindAsync(id);
             if (patient == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Doctors = context.Doctors.ToList();
+            ViewBag.Doctors = hosContext.Doctors.ToList();
 
             return View(patient);
         }
         [HttpPost]
-        public ActionResult Edit(Patient student, int[] selectedCourses)
+        public async Task<ActionResult> Edit(Patient patient, [Bind(Include = "FirstName, Password")] Account account ,int[] selectedCourses)
         {
-            Patient newpatient = context.Patients.Find(student.Id);
-            newpatient.account = student.account;
+            Patient newpatient = await hosContext.Patients.FindAsync(patient.Id);
+            newpatient.account = accContext.Accounts.FirstOrDefault(acc => acc.FirstName == account.FirstName && 
+                                                                           acc.Password == account.Password);
+            if (newpatient.account == null)
+                return HttpNotFound("Wrong Password or Login");
+
 
             newpatient.Doctors.Clear();
 
             if (selectedCourses != null)
             {
-                foreach (var doc in context.Doctors.Where(doc => selectedCourses.Contains(doc.Id)))
+                foreach (var doc in hosContext.Doctors.Where(doc => selectedCourses.Contains(doc.Id)))
                 {
                     newpatient.Doctors.Add(doc);
                 }
 
             }
 
-            context.Entry(newpatient).State = System.Data.Entity.EntityState.Modified;
+            hosContext.Set<Patient>().AddOrUpdate(newpatient);
 
-            context.SaveChanges();
+            hosContext.SaveChanges();
 
 
-
-            return RedirectToAction("Index");
+            //return account.FirstName + " " + account.Password;
+            return RedirectToAction($"Details/{patient.Id}");
         }
 
 
@@ -72,7 +79,7 @@ namespace AspNewStudy.Controllers
         protected override void Dispose(bool disposing)
         {
             if (disposing)
-                context.Dispose();
+                hosContext.Dispose();
             base.Dispose(disposing);
         }
     }

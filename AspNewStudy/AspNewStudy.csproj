@@ -132,6 +132,7 @@
     <Compile Include="Controllers\AccountDbSingelton.cs" />
     <Compile Include="Controllers\CurrentAccountSingelton.cs" />
     <Compile Include="Controllers\DeleteController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
@@ -212,6 +213,8 @@
     <Content Include="Views\Delete\Delete.cshtml" />
     <Content Include="Views\Patient\Edit.cshtml" />
     <Content Include="Views\Patient\Details.cshtml" />
+    <Content Include="Views\Doctor\Details.cshtml" />
+    <Content Include="Views\Doctor\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">

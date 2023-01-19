@@ -1,0 +1,36 @@
+﻿@model AspNewStudy.Models.Doctor
+
+<div>
+    <h4>Doctor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.account)
+        </dd>
+
+     
+
+     
+
+        <dt>
+            Patients:
+        </dt>
+        <dd>
+            <ul>
+                @foreach (AspNewStudy.Models.Patient p in Model.Patients)
+                {
+                    <li>@p.account.FirstName</li>
+                }
+            </ul>
+    </dl>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
