@@ -158,6 +158,7 @@
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\HospitalContext.cs" />
     <Compile Include="Models\HospitalDbInitializer.cs" />
+    <Compile Include="Models\IndexListViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,6 +219,8 @@
     <Content Include="Views\Doctor\Details.cshtml" />
     <Content Include="Views\Doctor\Create.cshtml" />
     <Content Include="Views\Account\AccountPagination.cshtml" />
+    <Content Include="Views\Doctor\DoctorPagination.cshtml" />
+    <Content Include="Views\Doctor\DoctorFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">

@@ -1,0 +1,34 @@
+﻿
+@using AspNewStudy.Models
+@model IndexViewModel<Doctor>
+@{
+    ViewData["Title"] = "Page";
+}
+
+<h1>Accounts List</h1>
+<table class="table">
+    <tr><th>Firstname</th><th>Lastname</th><th>Gender</th></tr>
+    @foreach (Doctor doc in Model.Objects)
+    {
+        <tr><td>@doc.account.FirstName</td><td>@doc.account.LastName</td><td>@doc.account.Gender</td></tr>
+    }
+</table>
+
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <button type="button"
+            class="btn btn-outline-dark"
+            onclick="location.href='@Url.Action("DoctorPagination", "Doctor", new { page = Model.PageViewModel.PageNumber - 1 })'">
+
+        Back
+    </button>
+}
+
+@if (Model.PageViewModel.HasNextPage)
+{
+    <button type="button"
+            class="btn btn-outline-dark"
+            onclick="location.href='@Url.Action("DoctorPagination", "Doctor", new { page = Model.PageViewModel.PageNumber + 1 })'">
+        Next
+    </button>
+}

@@ -45,10 +45,10 @@ namespace AspNewStudy.Controllers
             var items = source.OrderBy(acc => acc.ID).Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
             PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
-            IndexViewModel viewModel = new IndexViewModel
+            IndexViewModel<Account> viewModel = new IndexViewModel<Account>
             {
                 PageViewModel = pageViewModel,
-                Users = items
+                Objects = items
             };
             return View(viewModel);
         }

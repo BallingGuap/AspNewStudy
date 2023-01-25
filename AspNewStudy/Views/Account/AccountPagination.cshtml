@@ -1,5 +1,5 @@
 ﻿@using AspNewStudy.Models
-@model IndexViewModel
+@model IndexViewModel<Account>
 @{
     ViewData["Title"] = "Page";
 }
@@ -31,9 +31,27 @@
 <h1>Accounts List</h1>
 <table class="table">
     <tr><th>Firstname</th><th>Lastname</th><th>Gender</th></tr>
-    @foreach (Account acc in Model.Users)
+    @foreach (Account acc in Model.Objects)
     {
         <tr><td>@acc.FirstName</td><td>@acc.LastName</td><td>@acc.Gender</td></tr>
     }
 </table>
 
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <button type="button"
+            class="btn btn-outline-dark"
+            onclick="location.href='@Url.Action("AccountPagination", "Account", new { page = Model.PageViewModel.PageNumber - 1 })'">
+        
+        Back
+    </button>
+}
+
+@if (Model.PageViewModel.HasNextPage)
+{
+    <button type="button"
+            class="btn btn-outline-dark"
+            onclick="location.href='@Url.Action("AccountPagination", "Account", new { page = Model.PageViewModel.PageNumber + 1 })'">
+        Next
+    </button>
+}

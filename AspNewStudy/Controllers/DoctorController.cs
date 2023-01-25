@@ -1,6 +1,6 @@
 ﻿using AspNewStudy.Models;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -59,8 +59,53 @@ namespace AspNewStudy.Controllers
             accContext.SaveChanges();
             return RedirectToAction($"Details/{doc.Id}");
         }
-     
 
+        public ActionResult DoctorPagination(int page = 1)
+        {
+            int pageSize = 2;
+
+            IQueryable<Doctor> source = hosContext.Doctors;
+
+            var count = source.Count();
+            var items = source.OrderBy(acc => acc.Id).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+            IndexViewModel<Doctor> viewModel = new IndexViewModel<Doctor>
+            {
+                PageViewModel = pageViewModel,
+                Objects = items
+            };
+            return View(viewModel);
+        }
+
+
+        public ActionResult DoctorFilter(int? patient = null)
+        {
+            IQueryable<Doctor> filtredDoctors = null;
+            IQueryable<Patient> patients = hosContext.Patients;
+            IQueryable<Doctor> doctors = hosContext.Doctors;
+
+            if(patient.HasValue && patient != 0)
+            {
+                filtredDoctors = patients.Where(p => p.Id == patient.Value).
+                                  SelectMany(p => p.Doctors);
+                ViewBag.docs = filtredDoctors;
+            }
+            else
+            {
+                filtredDoctors = doctors;
+            }
+
+            var doctorsListView = new IndexListViewModel<Doctor>
+            {
+                Objects = filtredDoctors,
+                Selects = new Hashtable()
+                
+            };
+            doctorsListView.Selects["Patient"] = new SelectList(patients, "Id","account.FirstName");
+          
+            return View(doctorsListView);
+        }
 
 
     }
