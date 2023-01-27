@@ -1,4 +1,5 @@
 ﻿using AspNewStudy.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -20,7 +21,7 @@ namespace AspNewStudy.Controllers
        
 
 
-        AccountContext context = AccountDbSingelton.dbSingl;
+        AccountContext context = new AccountContext();
         IEnumerable<Account> accounts = null;
 
         public AccountController() :
@@ -34,7 +35,7 @@ namespace AspNewStudy.Controllers
             return View();
         }
 
-
+       
         public ActionResult AccountPagination(int page = 1)
         {
             int pageSize = 2;
@@ -52,6 +53,50 @@ namespace AspNewStudy.Controllers
             };
             return View(viewModel);
         }
+
+
+
+        public ActionResult AccountLogin() =>
+            View();
+
+        [HttpPost]
+        public  ActionResult AccountLogin(Account login)
+        {
+            Response.Cookies["UserLogin"].Value = "UserLogin";
+            Response.Cookies["UserLogin"].Expires = DateTime.Now.AddDays(1);
+
+            if (String.IsNullOrEmpty(login.EmailD) || String.IsNullOrEmpty(login.Password))
+            {
+                return HttpNotFound("Login email or Password is empty");
+            }
+
+            var currLogin = accounts.FirstOrDefault(acc => acc.EmailD == login.EmailD && acc.Password == login.Password);
+            
+
+
+            if (currLogin == default(Account))
+            {
+                return HttpNotFound("Login email or Password is uncorrect");
+            }
+
+            CurrentAccountSingelton.setCurrLogin(currLogin);
+            Response.Cookies["UserLogin"]["FirstName"] = currLogin.FirstName;
+            Response.Cookies["UserLogin"]["LastName"] = currLogin.LastName;
+            Response.Cookies["UserLogin"]["Gender"] = currLogin.Gender;
+            Response.Cookies["UserLogin"]["ID"] = currLogin.ID.ToString();
+            Response.Cookies["UserLogin"]["Password"] = currLogin.Password;
+            Response.Cookies["UserLogin"]["EmailD"] = currLogin.EmailD;
+            Response.Cookies["UserLogin"]["CreatedDate"] = currLogin.CreatedDate.ToString();
+
+            return RedirectToAction($"ShowCurrentLogin");
+
+        }
+
+        public string  ShowCurrentLogin()
+        {
+            return Request.Cookies["UserLogin"]["FirstName"];
+        }
+          
 
     }
 }

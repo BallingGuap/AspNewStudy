@@ -38,7 +38,9 @@ namespace AspNewStudy.Controllers
 
                 context.Accounts.Add(acc);
                 context.SaveChanges();
-                return "Succes";
+                CurrentAccountSingelton.setCurrLogin(acc);
+                ViewBag.currentLogin = CurrentAccountSingelton.loginSingl;
+                return $"Succes  Your login: {CurrentAccountSingelton.loginSingl}";
             }
             catch (Exception e)
             {

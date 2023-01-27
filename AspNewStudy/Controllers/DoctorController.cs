@@ -18,6 +18,7 @@ namespace AspNewStudy.Controllers
             return View(hosContext.Patients.ToList());
         }
 
+        [ActionName("Details__Admin")]
         public async Task<ActionResult> Details(int? id)
         {
             var doctor = await hosContext.Doctors.FindAsync(id);
