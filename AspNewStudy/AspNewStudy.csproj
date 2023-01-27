@@ -222,6 +222,7 @@
     <Content Include="Views\Doctor\DoctorPagination.cshtml" />
     <Content Include="Views\Doctor\DoctorFilter.cshtml" />
     <Content Include="Views\Account\AccountLogin.cshtml" />
+    <Content Include="Views\Doctor\Details__Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">
