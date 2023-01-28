@@ -13,7 +13,7 @@ namespace AspNewStudy.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202212301458351_InitialCreate"; }
+            get { return "202301271611240_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

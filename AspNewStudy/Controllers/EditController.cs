@@ -1,4 +1,4 @@
-﻿using AspNewStudy.Migrations;
+﻿//using AspNewStudy.Migrations;
 using AspNewStudy.Models;
 using System;
 using System.Collections.Generic;

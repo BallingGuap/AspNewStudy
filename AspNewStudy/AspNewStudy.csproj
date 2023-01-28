@@ -143,15 +143,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ListHelpers.cs" />
-    <Compile Include="Migrations\202212301458351_InitialCreate.cs" />
-    <Compile Include="Migrations\202212301458351_InitialCreate.designer.cs">
-      <DependentUpon>202212301458351_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202301271611240_InitialCreate.cs" />
+    <Compile Include="Migrations\202301271611240_InitialCreate.designer.cs">
+      <DependentUpon>202301271611240_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202212301501037_Account.cs" />
-    <Compile Include="Migrations\202212301501037_Account.designer.cs">
-      <DependentUpon>202212301501037_Account.cs</DependentUpon>
+    <Compile Include="Migrations\202301281140111_Project_Migration_0.cs" />
+    <Compile Include="Migrations\202301281140111_Project_Migration_0.designer.cs">
+      <DependentUpon>202301281140111_Project_Migration_0.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\AccountContextConfiguration.cs" />
+    <Compile Include="Migrations\HospitalContextConfiguration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountContext.cs" />
     <Compile Include="Models\AccountsDbInitializer.cs" />
@@ -225,14 +226,6 @@
     <Content Include="Views\Doctor\Details__Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202212301458351_InitialCreate.resx">
-      <DependentUpon>202212301458351_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202212301501037_Account.resx">
-      <DependentUpon>202212301501037_Account.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -245,7 +238,14 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202301271611240_InitialCreate.resx">
+      <DependentUpon>202301271611240_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301281140111_Project_Migration_0.resx">
+      <DependentUpon>202301281140111_Project_Migration_0.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
