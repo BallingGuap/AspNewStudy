@@ -46,10 +46,12 @@ namespace AspNewStudy.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Password,EmailD,Gender,CreatedDate")] Account account)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Password,EmailD,Gender")] Account account)
         {
+
             if (ModelState.IsValid)
             {
+                account.CreatedDate = DateTime.Now;
                 db.Accounts.Add(account);
                 db.SaveChanges();
                 return RedirectToAction("Index");

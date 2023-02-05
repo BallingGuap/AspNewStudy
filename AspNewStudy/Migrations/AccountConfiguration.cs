@@ -5,9 +5,9 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class AccountContextConfiguration : DbMigrationsConfiguration<AspNewStudy.Models.AccountContext>
+    internal sealed class AccountConfiguration : DbMigrationsConfiguration<AspNewStudy.Models.AccountContext>
     {
-        public AccountContextConfiguration()
+        public AccountConfiguration()
         {
             AutomaticMigrationsEnabled = false;
         }

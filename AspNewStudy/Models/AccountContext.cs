@@ -9,8 +9,16 @@ using System.Data.Entity;
 namespace AspNewStudy.Models
 {
 
-    public class AccountContext : DbContext
+    public class AccountContext 
+        : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<AccountContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

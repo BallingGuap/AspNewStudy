@@ -14,14 +14,19 @@ namespace AspNewStudy.Models
         [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
+
+        [HiddenInput(DisplayValue = false)]
+        public DateTime CreatedDate { get; set; }
+
+
         [Required(ErrorMessage = "Fill this field")]
-        [StringLength(15, MinimumLength = 5, ErrorMessage = "Too big or small text")]
+        [StringLength(15, MinimumLength = 3, ErrorMessage = "Too big or small text")]
         [Display(Name = "Name")]
         public string FirstName { get; set; }
 
 
         [Required(ErrorMessage = "Fill this field")]
-        [StringLength(15, MinimumLength = 5, ErrorMessage = "Too big or small text")]
+        [StringLength(15, MinimumLength = 3, ErrorMessage = "Too big or small text")]
         [Display(Name = "Surname")]
         public string LastName { get; set; }
 
@@ -35,11 +40,10 @@ namespace AspNewStudy.Models
         public string EmailD { get; set; }
 
         [Required(ErrorMessage = "Fill this field")]
-        [StringLength(15, MinimumLength = 5, ErrorMessage = "Too big or small text")]
+        [StringLength(15, MinimumLength = 4, ErrorMessage = "Too big or small text")]
         [Display(Name = "Gender")]
         public string Gender { get; set; }
 
-        [DataType(DataType.DateTime)]
-        public DateTime CreatedDate { get; set; }
+       
     }
 }

@@ -5,12 +5,11 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class HospitalContextConfiguration : DbMigrationsConfiguration<AspNewStudy.Models.HospitalContext>
+    internal sealed class HospitalConfiguration : DbMigrationsConfiguration<AspNewStudy.Models.HospitalContext>
     {
-        public HospitalContextConfiguration()
+        public HospitalConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "AspNewStudy.Models.HospitalContext";
         }
 
         protected override void Seed(AspNewStudy.Models.HospitalContext context)
