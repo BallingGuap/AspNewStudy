@@ -172,12 +172,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ListHelpers.cs" />
-    <Compile Include="Migrations\202302050903189_Project_Migration_0.cs" />
-    <Compile Include="Migrations\202302050903189_Project_Migration_0.designer.cs">
-      <DependentUpon>202302050903189_Project_Migration_0.cs</DependentUpon>
+    <Compile Include="Migrations\202302081209018_HospitlMirato.cs" />
+    <Compile Include="Migrations\202302081209018_HospitlMirato.designer.cs">
+      <DependentUpon>202302081209018_HospitlMirato.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\AccountConfiguration.cs" />
-    <Compile Include="Migrations\HospitalConfiguration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountContext.cs" />
     <Compile Include="Models\AccountsDbInitializer.cs" />
@@ -249,6 +248,8 @@
     <Content Include="Views\Doctor\DoctorFilter.cshtml" />
     <Content Include="Views\Account\AccountLogin.cshtml" />
     <Content Include="Views\Doctor\Details__Admin.cshtml" />
+    <Content Include="Views\Patient\FindPatient.cshtml" />
+    <Content Include="Views\Patient\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -264,8 +265,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202302050903189_Project_Migration_0.resx">
-      <DependentUpon>202302050903189_Project_Migration_0.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202302081209018_HospitlMirato.resx">
+      <DependentUpon>202302081209018_HospitlMirato.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

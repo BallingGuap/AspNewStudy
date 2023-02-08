@@ -74,7 +74,19 @@ namespace AspNewStudy.Controllers
             return RedirectToAction($"Details/{patient.Id}");
         }
 
+        public  ActionResult FindPatient()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult FindPatient(string patientName)
+        {
+            var patient = hosContext.Patients.FirstOrDefault(p => p.account.FirstName == patientName);
+            return patient != default(Patient) 
+                ? RedirectToAction($"Details/{patient.Id}") 
+                : throw new NullReferenceException();
+        }
 
         protected override void Dispose(bool disposing)
         {

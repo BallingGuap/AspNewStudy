@@ -7,13 +7,13 @@ namespace AspNewStudy.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Project_Migration_0 : IMigrationMetadata
+    public sealed partial class HospitlMirato : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Project_Migration_0));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(HospitlMirato));
         
         string IMigrationMetadata.Id
         {
-            get { return "202302050903189_Project_Migration_0"; }
+            get { return "202302081209018_HospitlMirato"; }
         }
         
         string IMigrationMetadata.Source

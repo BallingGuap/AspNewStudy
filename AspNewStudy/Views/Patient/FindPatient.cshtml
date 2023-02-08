@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "FindStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div>
+        @using (Ajax.BeginForm("FindPatient", new AjaxOptions { }))
+        {
+            <input type="text" name="patientName">
+            <input type="submit" value="Find">
+        }
+    </div>
+
+    @Ajax.ActionLink("Patients", "Index", new AjaxOptions() {  })
+</div>

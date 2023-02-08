@@ -13,6 +13,7 @@ namespace AspNewStudy.Models
         public DbSet<Doctor> Doctors{ get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<HospitalContext>(null);
             modelBuilder.Entity<Patient>().
                 HasMany(d => d.Doctors).
                 WithMany(p => p.Patients).

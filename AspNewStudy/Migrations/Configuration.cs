@@ -5,9 +5,9 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class HospitalConfiguration : DbMigrationsConfiguration<AspNewStudy.Models.HospitalContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AspNewStudy.Models.HospitalContext>
     {
-        public HospitalConfiguration()
+        public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
