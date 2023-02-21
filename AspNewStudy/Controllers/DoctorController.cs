@@ -1,4 +1,5 @@
 ﻿using AspNewStudy.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace AspNewStudy.Controllers
         private AccountContext accContext = new AccountContext();
         public ActionResult Index()
         {
-            return View(hosContext.Patients.ToList());
+            return View(hosContext.Doctors.ToList());
         }
 
         [ActionName("Details__Admin")]
@@ -51,14 +52,28 @@ namespace AspNewStudy.Controllers
             accContext.Accounts.Add(docAcc);
 
             doc.account = docAcc;
-            doc.Id = hosContext.Doctors.Max(d => d.Id) + 1;
-            doc.account.ID = accContext.Accounts.Max(acc => acc.ID) + 1;
+            if (hosContext.Doctors.Count() != 0)
+            {
+                doc.Id = hosContext.Doctors.Max(d => d.Id) +1;
+            }
+            else
+            {
+                doc.Id = 1;
+            }
+            if (accContext.Accounts.Count() != 0)
+            {
+                doc.account.ID = accContext.Accounts.Max(acc => acc.ID) + 1;
+            }
+            else
+            {
+                doc.account.ID = 1;
+            }
             doc.account.CreatedDate = DateTime.Now;
            hosContext.Doctors.Add(doc);
            
            hosContext.SaveChanges();
             accContext.SaveChanges();
-            return RedirectToAction($"Details/{doc.Id}");
+            return RedirectToAction($"Details__Admin/{doc.Id}");
         }
 
         public ActionResult DoctorPagination(int page = 1)

@@ -250,6 +250,7 @@
     <Content Include="Views\Doctor\Details__Admin.cshtml" />
     <Content Include="Views\Patient\FindPatient.cshtml" />
     <Content Include="Views\Patient\Index.cshtml" />
+    <Content Include="Views\Doctor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
