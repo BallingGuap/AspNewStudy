@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\QuestController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RegisterHtmlFormController.cs" />
     <Compile Include="Filters\ActAttribute.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\NinjectRegistrations .cs" />
     <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\Quest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +269,7 @@
     <Content Include="Views\Patient\FindPatient.cshtml" />
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Doctor\Index.cshtml" />
+    <Content Include="Views\Quest\StylizedQuest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -286,6 +289,7 @@
       <DependentUpon>202302081209018_HospitlMirato.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,0 +1,23 @@
+﻿@model  AspNewStudy.Models.Quest
+@{
+    ViewBag.Title = "StylizedQuest";
+}
+
+<h2>@Model.Name</h2>
+<img src="@Model.Logo"/>
+<p>@Model.Desc</p>
+<p>Address @Model.Address</p>
+<p>Fear Scale: @Model.FearScale</p>
+<p>Hard Scale: @Model.HardScale</p>
+<p>Maximum Players: @Model.MaxPlayersCount</p>
+<p>Minimum Players: @Model.MinPlayersCount</p>
+<p>Contacts: Email @Model.Email, Phone Number: @Model.PhoneNumber</p>
+<p>Rating: @Model.Rating</p>
+<p>Quest Time: @Model.Time.Hour:@Model.Time.Minute</p>
+<div>Photos:</div>
+<div>
+    @foreach(var photo in Model.Photos)
+            {
+                <img src="@photo"/>
+            }
+</div>
