@@ -4,21 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AspNewStudy.Models;
+using Ninject.Infrastructure.Language;
 
 namespace AspNewStudy.Controllers
 {
     public class QuestController : Controller
     {
-        // GET: Quest
+        QuestContext db = new QuestContext();
         public ActionResult Index()
         {
-            return View();
+            var quests = db.Quests.ToEnumerable();
+            return View(quests);
         }
 
 
-        public ActionResult StylizedQuest()
+        public ActionResult StylizedQuest(int id)
         {
-            return View(new Quest());
+            var quest = db.Quests.First(q => q.Id == id);
+            return View(quest);
         }
     }
 }

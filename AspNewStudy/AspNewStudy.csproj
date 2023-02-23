@@ -204,6 +204,7 @@
     <Compile Include="Models\NinjectRegistrations .cs" />
     <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Models\Quest.cs" />
+    <Compile Include="Models\QuestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +271,7 @@
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Doctor\Index.cshtml" />
     <Content Include="Views\Quest\StylizedQuest.cshtml" />
+    <Content Include="Views\Quest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
